@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Что такое СЛР?</title>
+    <style>
+      :root {
+        --bg: #07111d;
+        --panel: rgba(15, 27, 41, 0.9);
+        --text: #edf4ff;
+        --muted: #b7c7d9;
+        --primary: #7cc7ff;
+        --accent: #8ef3c5;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(circle at top left, rgba(76, 161, 255, 0.2), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(142, 243, 197, 0.12), transparent 30%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .page {
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 32px 24px;
+        background: rgba(15, 27, 41, 0.8);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 26px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        letter-spacing: -0.06em;
+      }
+
+      h2 {
+        margin-top: 30px;
+        font-size: 1.4rem;
+        color: var(--accent);
+      }
+
+      p, li {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), #4ba3ff);
+        color: #041521;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <h1>Что такое СЛР?</h1>
+
+      <p>
+        <strong>СЛР</strong> (Supervised Learning Rate) — это не стандартный термин в обучении нейросетей,
+        а часто используется как сокращение для <strong>Supervised Learning</strong>, то есть
+        <strong>обучение с учителем</strong>.
+      </p>
+
+      <p>
+        В машинном обучении модель обучается на заранее размеченных данных: у каждого примера есть
+        правильный ответ, и модель учится находить связь между входными данными и тем, что должно быть на выходе.
+      </p>
+
+      <h2>Простое объяснение</h2>
+      <p>
+        Представь, что ты показываешь ребёнку много картинок с кошками и собаками, и говоришь,
+        где кошка, а где собака. Затем ребёнок учится распознавать животных по их признакам.
+        Это и есть обучение с учителем.
+      </p>
+
+      <h2>Как это работает</h2>
+      <ul>
+        <li>Есть данные с правильными ответами.</li>
+        <li>Модель делает предположение.</li>
+        <li>Сравнивает ответ с правильным.</li>
+        <li>Исправляет свои параметры и пытается снова.</li>
+      </ul>
+
+      <h2>Где используется</h2>
+      <p>
+        СЛР/обучение с учителем применяют в распознавании картинок, анализе текста, предсказании,
+        классификации данных, медицинской диагностике и других задачах, где есть правильные ответы.
+      </p>
+
+      <h2>Пример</h2>
+      <p>
+        Если мы обучаем модель определять, является ли письмо спамом, она получает много примеров писем,
+        помеченных как “спам” или “не спам”. После обучения она может самостоятельно решать,
+        относится ли новое письмо к этому классу.
+      </p>
+
+      <a class="back" href="index.html">← Назад на главную</a>
+    </main>
+  </body>
+</html>
