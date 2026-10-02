@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SimCentre — современный цифровой центр для идей, услуг и решений."
+      content="SimCentre — образовательный центр для обучения в кружках."
     />
-    <title>SimCentre</title>
+    <title>SimCentre - Кружки обучения</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,9 +21,8 @@
       <div class="container nav-wrap">
         <div class="brand" aria-label="SimCentre дом">Sim<span>Centre</span></div>
         <nav class="main-nav" aria-label="Основная навигация">
-          <a href="#about">О нас</a>
-          <a href="#services">Услуги</a>
-          <a href="#work">Работы</a>
+          <a href="#courses">Кружки</a>
+          <a href="#about">О центре</a>
           <a href="#contact">Контакты</a>
         </nav>
       </div>
@@ -31,97 +30,229 @@
 
     <main>
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Цифровые опыты будущего</p>
-            <h1>Превращайте смелые идеи в запоминающиеся онлайн-опыты.</h1>
-            <p class="lede">
-              SimCentre помогает брендам и бизнесу воплотить видение в полированные 
-              веб-опыты, чёткую стратегию и долгосрочный цифровой прогресс.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#contact">Начать проект</a>
-              <a class="button secondary" href="#services">Изучить услуги</a>
-            </div>
-            <ul class="mini-stats" aria-label="Ключевые показатели">
-              <li><strong>24/7</strong><span>Творческая поддержка</span></li>
-              <li><strong>3x</strong><span>Быстрые запуски</span></li>
-              <li><strong>100%</strong><span>Индивидуальный подход</span></li>
-            </ul>
+        <div class="container hero-single">
+          <p class="eyebrow">Образовательный центр</p>
+          <h1>Добро пожаловать в SimCentre</h1>
+          <p class="lede">
+            Откройте для себя увлекательные кружки обучения и развивайте свои навыки 
+            вместе с нами. Выбирайте направление, которое вас интересует!
+          </p>
+        </div>
+      </section>
+
+      <section id="courses" class="section courses-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">Доступные кружки</p>
+            <h2>Выберите направление обучения</h2>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="panel card-1">
-              <span class="label">Стратегия</span>
-              <strong>Системы бренда</strong>
+          
+          <div class="courses-grid">
+            <!-- Курс 1 -->
+            <div class="course-card" data-course="1">
+              <div class="course-card-front">
+                <div class="course-icon">🚀</div>
+                <h3>Робототехника</h3>
+                <p>Базовые основы</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-1">
+                <button class="close-btn">✕</button>
+                <h3>Робототехника</h3>
+                <p class="course-description">
+                  Изучите основы конструирования и программирования роботов. 
+                  Создавайте собственные проекты, решайте задачи и участвуйте в соревнованиях.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Начинающий
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 8-14 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Вт, Чт 16:00-17:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Иван Петров
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="panel card-2">
-              <span class="label">Запуск</span>
-              <strong>Веб-опыты</strong>
+
+            <!-- Курс 2 -->
+            <div class="course-card" data-course="2">
+              <div class="course-card-front">
+                <div class="course-icon">💻</div>
+                <h3>Веб-разработка</h3>
+                <p>HTML, CSS, JavaScript</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-2">
+                <button class="close-btn">✕</button>
+                <h3>Веб-разработка</h3>
+                <p class="course-description">
+                  Создавайте современные веб-сайты с нуля. Освойте HTML, CSS и JavaScript 
+                  для создания интерактивных и красивых веб-приложений.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Начинающий/Средний
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 10-16 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Пн, Ср 17:00-18:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Мария Сидорова
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="orb orb-one"></div>
-            <div class="orb orb-two"></div>
+
+            <!-- Курс 3 -->
+            <div class="course-card" data-course="3">
+              <div class="course-card-front">
+                <div class="course-icon">🎨</div>
+                <h3>Графический дизайн</h3>
+                <p>Adobe & дизайн</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-3">
+                <button class="close-btn">✕</button>
+                <h3>Графический дизайн</h3>
+                <p class="course-description">
+                  Научитесь создавать потрясающий визуальный контент. Работайте с Photoshop, 
+                  Illustrator и другими инструментами профессионального дизайна.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Начинающий
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 12-18 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Сб 14:00-15:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Алексей Морозов
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Курс 4 -->
+            <div class="course-card" data-course="4">
+              <div class="course-card-front">
+                <div class="course-icon">🐍</div>
+                <h3>Программирование Python</h3>
+                <p>Язык программирования</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-4">
+                <button class="close-btn">✕</button>
+                <h3>Программирование Python</h3>
+                <p class="course-description">
+                  Овладейте одним из самых популярных языков программирования. 
+                  Создавайте приложения, автоматизируйте задачи и работайте с данными.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Начинающий/Средний
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 11-17 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Пн, Ср 18:00-19:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Ольга Кузнецова
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Курс 5 -->
+            <div class="course-card" data-course="5">
+              <div class="course-card-front">
+                <div class="course-icon">🎮</div>
+                <h3>Разработка игр</h3>
+                <p>Unity & Game Dev</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-5">
+                <button class="close-btn">✕</button>
+                <h3>Разработка игр</h3>
+                <p class="course-description">
+                  Создавайте собственные 2D и 3D игры с помощью Unity. 
+                  От геймплея до графики - освойте все аспекты разработки игр.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Средний/Продвинутый
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 13-18 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Вт, Сб 17:00-18:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Дмитрий Волков
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Курс 6 -->
+            <div class="course-card" data-course="6">
+              <div class="course-card-front">
+                <div class="course-icon">🤖</div>
+                <h3>Искусственный интеллект</h3>
+                <p>AI & Machine Learning</p>
+                <button class="course-btn">Узнать больше →</button>
+              </div>
+              <div class="course-card-back" id="back-6">
+                <button class="close-btn">✕</button>
+                <h3>Искусственный интеллект</h3>
+                <p class="course-description">
+                  Погрузитесь в мир машинного обучения и нейронных сетей. 
+                  Создавайте умные системы и решайте задачи с помощью ИИ.
+                </p>
+                <div class="course-details">
+                  <div class="detail-item">
+                    <strong>Уровень:</strong> Продвинутый
+                  </div>
+                  <div class="detail-item">
+                    <strong>Возраст:</strong> 14-18 лет
+                  </div>
+                  <div class="detail-item">
+                    <strong>Время:</strong> Ср, Пт 18:00-19:30
+                  </div>
+                  <div class="detail-item">
+                    <strong>Преподаватель:</strong> Елена Лебедева
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="about" class="section intro">
         <div class="container narrow">
-          <p class="section-tag">О нас</p>
-          <h2>Вдумчивый дизайн и практическое исполнение.</h2>
+          <p class="section-tag">О центре</p>
+          <h2>SimCentre - ваш путь в мир технологий</h2>
           <p>
-            SimCentre объединяет стратегическое мышление, современные принципы дизайна 
-            и чистую техническую реализацию, чтобы идеи выделялись онлайн. От первого 
-            впечатления до готовых продуктов — каждая деталь создана для фокуса и эффективности.
+            SimCentre - это современный образовательный центр, где мы помогаем 
+            молодым людям развивать навыки в области технологий, дизайна и инноваций. 
+            Наши опытные преподаватели создают интерактивные занятия, которые вдохновляют 
+            и мотивируют к творчеству.
           </p>
-        </div>
-      </section>
-
-      <section id="services" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="section-tag">Услуги</p>
-            <h2>Всё необходимое для перехода от концепции к запуску.</h2>
-          </div>
-          <div class="card-grid three-up">
-            <article class="info-card">
-              <div class="icon">01</div>
-              <h3>Идентичность бренда</h3>
-              <p>Позиционирование, сообщение и визуальный стиль, которые запоминаются.</p>
-            </article>
-            <article class="info-card">
-              <div class="icon">02</div>
-              <h3>Веб-дизайн</h3>
-              <p>Современные интерфейсы, ориентированные на конверсию, с балансом ясности и характера.</p>
-            </article>
-            <article class="info-card">
-              <div class="icon">03</div>
-              <h3>Цифровой запуск</h3>
-              <p>Реализация, оптимизация и поддержка для гладкого публичного запуска.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="section alt">
-        <div class="container">
-          <div class="section-heading">
-            <p class="section-tag">Работы</p>
-            <h2>Простые системы. Сильное присутствие.</h2>
-          </div>
-          <div class="showcase">
-            <div class="showcase-item">
-              <div class="showcase-copy">
-                <span>01 / Цифровое присутствие</span>
-                <h3>Сфокусированные опыты, построенные для доверия и ясности.</h3>
-              </div>
-            </div>
-            <div class="showcase-item accent">
-              <div class="showcase-copy">
-                <span>02 / Дизайн конверсии</span>
-                <h3>Сообщение и структура, которые направляют действие с уверенностью.</h3>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -129,17 +260,17 @@
         <div class="container contact-box">
           <div>
             <p class="section-tag">Контакты</p>
-            <h2>Давайте создадим что-то, что будет неповторимо вашим.</h2>
+            <h2>Готовы начать обучение?</h2>
           </div>
-          <a class="button primary" href="mailto:hello@simcentre.example">hello@simcentre.example</a>
+          <a class="button primary" href="mailto:info@simcentre.example">Записаться в кружок</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
-        <p>© <span id="year"></span> SimCentre</p>
-        <p>Создано для современного цифрового рассказа.</p>
+        <p>© <span id="year"></span> SimCentre - Образовательный центр</p>
+        <p>Создано для развития будущих специалистов</p>
       </div>
     </footer>
 
