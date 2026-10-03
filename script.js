@@ -4,17 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
     year.textContent = new Date().getFullYear();
   }
 
-  const modal = document.getElementById("course-modal");
-  const modalContent = document.getElementById("modal-content");
-  const modalTitle = document.getElementById("modal-title");
-  const modalIcon = document.getElementById("modal-icon");
-  const openButtons = document.querySelectorAll(".open-modal");
+  const homePage = document.getElementById("home-page");
+  const coursePage = document.getElementById("course-page");
+  const courseTitle = document.getElementById("course-title");
+  const courseIcon = document.getElementById("course-icon");
+  const courseTabs = document.getElementById("course-tabs");
+  const courseContent = document.getElementById("course-content");
+  const courseBackButton = document.getElementById("course-back-btn");
 
   const courseData = {
     slr: {
       title: "СЛР",
       icon: "🚑",
-      tag: "Сердечно-легочная реанимация",
       tabs: [
         {
           label: "1. Вступление",
@@ -73,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     emergency: {
       title: "Экстренная помощь",
       icon: "🩺",
-      tag: "Первые действия при кризисе",
       tabs: [
         {
           label: "1. Вступление",
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
           label: "2. Методическое пособие",
           content: `
             <h2>Методическое пособие</h2>
-            <p>При оказании экстренной помощи важно соблюдать простую последовательность действий и не паниковать. Чем быстрее и правильнее выполняются первые шаги, тем выше шанс сохранить жизнь.</p>
+            <p>При оказании экстренной помощи важно соблюдать простую последовательность действий и не паниковать. Чем ��ыстрее и правильнее выполняются первые шаги, тем выше шанс сохранить жизнь.</p>
             <div class="grid">
               <div class="mini-card">
                 <h3>1. Оценка ситуации</h3>
@@ -131,66 +131,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const renderModal = (courseKey) => {
+  function renderCourse(courseKey) {
     const course = courseData[courseKey];
     if (!course) return;
 
-    modalTitle.textContent = course.title;
-    modalIcon.textContent = course.icon;
-    modalContent.innerHTML = `
-      <p class="modal-tagline">${course.tag}</p>
-      <div class="modal-tabs">
-        ${course.tabs
-          .map(
-            (tab, index) =>
-              `<button type="button" class="modal-tab ${index === 0 ? "active" : ""}" data-tab-index="${index}">${tab.label}</button>`
-          )
-          .join("")}
-      </div>
-      <div class="modal-panel active">${course.tabs[0].content}</div>
-      ${course.tabs
-        .map(
-          (tab, index) =>
-            `<div class="modal-panel" data-panel-index="${index}">${tab.content}</div>`
-        )
-        .join("")}
-    `;
+    courseTitle.textContent = course.title;
+    courseIcon.textContent = course.icon;
 
-    modalContent.querySelectorAll(".modal-tab").forEach((button) => {
+    courseTabs.innerHTML = course.tabs
+      .map(
+        (tab, index) =>
+          `<button type="button" class="course-tab ${index === 0 ? "active" : ""}" data-index="${index}">${tab.label}</button>`
+      )
+      .join("");
+
+    const tabButtons = courseTabs.querySelectorAll(".course-tab");
+    tabButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const index = Number(button.dataset.tabIndex);
-        modalContent.querySelectorAll(".modal-tab").forEach((btn) => btn.classList.toggle("active", btn === button));
-        modalContent.querySelectorAll(".modal-panel").forEach((panel, panelIndex) => {
-          panel.classList.toggle("active", panelIndex === index + 1);
-        });
+        const index = Number(button.dataset.index);
+        tabButtons.forEach((btn) => btn.classList.toggle("active", btn === button));
+        renderTabContent(courseKey, index);
       });
     });
-  };
 
-  const openModal = (courseKey) => {
-    renderModal(courseKey);
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-  };
+    renderTabContent(courseKey, 0);
+  }
 
-  const closeModal = () => {
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-  };
+  function renderTabContent(courseKey, index) {
+    const course = courseData[courseKey];
+    if (!course) return;
+    courseContent.innerHTML = course.tabs[index].content;
+  }
 
-  openButtons.forEach((button) => {
-    button.addEventListener("click", () => openModal(button.dataset.course));
+  function showCourse(courseKey) {
+    renderCourse(courseKey);
+    homePage.classList.add("hidden");
+    coursePage.classList.remove("hidden");
+  }
+
+  function showHome() {
+    homePage.classList.remove("hidden");
+    coursePage.classList.add("hidden");
+  }
+
+  document.querySelectorAll(".course-trigger").forEach((button) => {
+    button.addEventListener("click", () => {
+      showCourse(button.dataset.course);
+    });
   });
 
-  document.querySelectorAll("[data-close-modal]").forEach((element) => {
-    element.addEventListener("click", closeModal);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("active")) {
-      closeModal();
-    }
-  });
+  courseBackButton.addEventListener("click", showHome);
 });
