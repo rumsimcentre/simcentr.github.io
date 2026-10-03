@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Что такое СЛР? - Сердечно-легочная реанимация</title>
+    <title>СЛР - Образовательный центр SimCenter</title>
     <style>
       :root {
         --bg: #07111d;
         --panel: rgba(15, 27, 41, 0.9);
+        --panel-soft: rgba(22, 36, 53, 0.9);
         --text: #edf4ff;
         --muted: #b7c7d9;
         --primary: #7cc7ff;
+        --primary-strong: #4ba3ff;
         --accent: #8ef3c5;
+        --danger: #ff6b6b;
+        --line: rgba(255, 255, 255, 0.08);
       }
 
       * { box-sizing: border-box; }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: "Inter", sans-serif;
-        background: radial-gradient(circle at top left, rgba(76, 161, 255, 0.2), transparent 28%),
+        background:
+          radial-gradient(circle at top left, rgba(76, 161, 255, 0.2), transparent 28%),
           radial-gradient(circle at bottom right, rgba(142, 243, 197, 0.12), transparent 30%),
           var(--bg);
         color: var(--text);
@@ -27,31 +36,114 @@
       }
 
       .page {
-        max-width: 900px;
+        max-width: 1100px;
         margin: 60px auto;
-        padding: 32px 24px;
-        background: rgba(15, 27, 41, 0.8);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 26px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        padding: 32px 24px 48px;
+      }
+
+      .header-card {
+        background: rgba(15, 27, 41, 0.82);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 28px 28px 18px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .title-icon {
+        width: 60px;
+        height: 60px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(124, 199, 255, 0.2), rgba(142, 243, 197, 0.12));
+        border: 1px solid rgba(124, 199, 255, 0.25);
+        font-size: 2rem;
       }
 
       h1 {
-        margin: 0 0 18px;
-        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.1rem);
         letter-spacing: -0.06em;
-        color: #ff6b6b;
+        color: var(--text);
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #041521;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 26px 0 18px;
+      }
+
+      .tab-btn {
+        border: 1px solid rgba(124, 199, 255, 0.2);
+        background: rgba(124, 199, 255, 0.08);
+        color: var(--text);
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .tab-btn.active {
+        background: linear-gradient(135deg, rgba(124, 199, 255, 0.2), rgba(142, 243, 197, 0.1));
+        border-color: rgba(124, 199, 255, 0.5);
+        box-shadow: 0 8px 18px rgba(75, 163, 255, 0.18);
+      }
+
+      .tab-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .tab-panel {
+        display: none;
+        background: rgba(9, 18, 29, 0.86);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 28px 24px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      }
+
+      .tab-panel.active {
+        display: block;
       }
 
       h2 {
-        margin-top: 30px;
-        font-size: 1.4rem;
+        margin-top: 0;
+        font-size: clamp(1.4rem, 2vw, 2rem);
         color: var(--accent);
       }
 
       p, li {
+        font-size: 1.04rem;
         color: var(--muted);
-        font-size: 1.05rem;
       }
 
       ul {
@@ -59,90 +151,184 @@
       }
 
       .warning {
-        background: rgba(255, 107, 107, 0.15);
-        border-left: 4px solid #ff6b6b;
-        padding: 16px;
-        margin: 20px 0;
-        border-radius: 8px;
+        background: rgba(255, 107, 107, 0.12);
+        border-left: 4px solid var(--danger);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin: 18px 0;
       }
 
       .warning strong {
-        color: #ff6b6b;
+        color: #ff9f9f;
       }
 
-      .back {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--primary), #4ba3ff);
-        color: #041521;
-        font-weight: 700;
-        text-decoration: none;
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .mini-card {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .mini-card h3 {
+        margin: 0 0 8px;
+        color: var(--text);
+      }
+
+      .placeholder {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        border: 1px dashed rgba(124, 199, 255, 0.4);
+        border-radius: 18px;
+        background: rgba(124, 199, 255, 0.04);
+        color: var(--muted);
+        font-size: 1.05rem;
+        text-align: center;
+        padding: 18px;
+      }
+
+      @media (max-width: 720px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
     <main class="page">
-      <h1>🚑 Что такое СЛР?</h1>
+      <div class="header-card">
+        <div class="topbar">
+          <div class="title-wrap">
+            <div class="title-icon">🚑</div>
+            <h1>СЛР</h1>
+          </div>
+          <a class="back" href="index.html">← Назад</a>
+        </div>
 
-      <p>
-        <strong>СЛР</strong> — это <strong>сердечно-легочная реанимация</strong>. Это комплекс экстренных
-        мероприятий, которые проводят человеку при остановке сердца и дыхания, чтобы сохранить кровообращение,
-        снабжение кислородом мозга и других жизненно важных органов до приезда врачей.
-      </p>
+        <div class="tabs" aria-label="Вкладки курса СЛР">
+          <button class="tab-btn active" type="button" data-tab="tab-1">1. Вступление</button>
+          <button class="tab-btn" type="button" data-tab="tab-2">2. Методическое пособие</button>
+          <button class="tab-btn" type="button" data-tab="tab-3">3. Вкладка 3</button>
+          <button class="tab-btn" type="button" data-tab="tab-4">4. Вкладка 4</button>
+          <button class="tab-btn" type="button" data-tab="tab-5">5. Вкладка 5</button>
+        </div>
 
-      <div class="warning">
-        <strong>⚠️ Важно:</strong> СЛР выполняется только в экстренной ситуации и лучше всего под руководством
-        обученного человека или по указаниям диспетчера скорой помощи. Если ситуация критическая — звоните
-        103 или 112 сразу.
+        <section class="tab-panel active" id="tab-1">
+          <h2>Вступление</h2>
+          <p>
+            <strong>СЛР</strong> — это <strong>сердечно-легочная реанимация</strong>. Это комплекс экстренных
+            мероприятий, выполняемых при остановке сердца и дыхания для поддержания кровообращения и
+            доставки кислорода в головной мозг и жизненно важные органы до приезда медицинской помощи.
+          </p>
+
+          <div class="warning">
+            <strong>⚠️ Важно:</strong> СЛР выполняется только в экстренной ситуации и лучше всего под
+            руководством обученного человека или по указаниям диспетчера скорой помощи. При критической
+            ситуации звоните <strong>103</strong> или <strong>112</strong> сразу.
+          </div>
+
+          <h2>Когда нужна СЛР?</h2>
+          <p>СЛР необходима, если у человека:</p>
+          <ul>
+            <li>нет сознания;</li>
+            <li>нет пульса на сонной артерии;</li>
+            <li>не дышит или дышит очень редко и судорожно;</li>
+            <li>произошла остановка сердца после травмы, утопления, поражения током и т.п.</li>
+          </ul>
+        </section>
+
+        <section class="tab-panel" id="tab-2">
+          <h2>Методическое пособие</h2>
+          <p>
+            Ниже представлены базовые шаги оказания первой помощи в случае остановки сердца и дыхания.
+            Важно помнить: алгоритм должен выполняться последовательно и без паники.
+          </p>
+
+          <div class="grid">
+            <div class="mini-card">
+              <h3>1. Проверка безопасности</h3>
+              <p>Убедитесь, что вокруг безопасно, и вы не подвергаете себя риску.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>2. Вызов помощи</h3>
+              <p>Немедленно вызывайте скорую помощь и попросите кого-то принести дефибриллятор.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>3. Проверка сознания</h3>
+              <p>Потрясите человека за плечи и спросите: «Вы в порядке?»</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>4. Дыхание</h3>
+              <p>Проверьте наличие дыхания в течение 10 секунд. Если его нет — начинайте реанимацию.</p>
+            </div>
+          </div>
+
+          <h2>Основные действия при СЛР</h2>
+          <ul>
+            <li><strong>30 надавливаний</strong> на грудную клетку;</li>
+            <li><strong>2 вдоха</strong> искусственной вентиляции лёгких;</li>
+            <li>повторять цикл до приезда скорой помощи или дефибриллятора.</li>
+          </ul>
+        </section>
+
+        <section class="tab-panel" id="tab-3">
+          <h2>Вкладка 3</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для третьей вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-4">
+          <h2>Вкладка 4</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для четвёртой вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-5">
+          <h2>Вкладка 5</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для пятой вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
       </div>
-
-      <h2>Когда нужна СЛР?</h2>
-      <p>СЛР необходима, если у человека:</p>
-      <ul>
-        <li>нет сознания;</li>
-        <li>нет пульса на сонной артерии;</li>
-        <li>не дышит или дышит очень редко и судорожно;</li>
-        <li>произошла остановка сердца после травмы, утопления, поражения током или другого события.</li>
-      </ul>
-
-      <h2>Основные действия при СЛР</h2>
-      <p>СЛР обычно включает три основных этапа:</p>
-      <ul>
-        <li><strong>Проверка безопасности</strong> — убедиться, что рядом безопасно;</li>
-        <li><strong>Освобождение дыхательных путей и оценка дыхания</strong> — проверить, дышит ли человек;</li>
-        <li><strong>Непрямой массаж сердца</strong> — выполнять ритмичные надавливания на грудную клетку.</li>
-      </ul>
-
-      <h2>Непрямой массаж сердца</h2>
-      <ul>
-        <li>Человек лежит на твёрдой поверхности.</li>
-        <li>Основание ладони кладут на середину грудины.</li>
-        <li>Делают ритмичные надавливания с частотой около 100–120 в минуту.</li>
-        <li>Глубина надавливания у взрослых — примерно 5–6 см.</li>
-        <li>После каждого нажатия грудная клетка должна полностью возвращаться в исходное положение.</li>
-      </ul>
-
-      <h2>Искусственная вентиляция лёгких</h2>
-      <p>
-        Если человек не дышит, проводят искусственное дыхание: два вдоха после 30 надавливаний на грудную клетку.
-        При наличии дефибриллятора его используют как можно быстрее.
-      </p>
-
-      <h2>Почему СЛР так важно?</h2>
-      <p>
-        Каждая минута без кровообращения и кислорода приводит к повреждению мозга и внутренних органов.
-        Правильно выполненная СЛР может значительно увеличить шансы человека выжить до приезда медицинской бригады.
-      </p>
-
-      <h2>Важно помнить</h2>
-      <p>
-        СЛР — это неотложная помощь, которую может оказать любой человек, обученный базовым навыкам.
-        Чем раньше начата реанимация, тем выше вероятность спасения человека.
-      </p>
-
-      <a class="back" href="index.html">← Назад на главную</a>
     </main>
+
+    <script>
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((btn) => {
+            btn.classList.toggle('active', btn === button);
+          });
+
+          tabPanels.forEach((panel) => {
+            panel.classList.toggle('active', panel.id === target);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
