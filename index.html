@@ -29,7 +29,7 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero" id="home-section">
         <div class="container hero-single">
           <div class="hero-brand">
             <div class="hero-logo-wrap">
@@ -60,7 +60,7 @@
           </div>
 
           <div class="courses-grid">
-            <button type="button" class="card-cube open-modal" data-course="slr">
+            <button type="button" class="card-cube course-trigger" data-course="slr">
               <div class="card-top">
                 <span class="card-badge">СЛР</span>
                 <div class="card-icon">🚑</div>
@@ -69,7 +69,7 @@
               <p>Сердечно-легочная реанимация</p>
             </button>
 
-            <button type="button" class="card-cube open-modal" data-course="emergency">
+            <button type="button" class="card-cube course-trigger" data-course="emergency">
               <div class="card-top">
                 <span class="card-badge">ЭП</span>
                 <div class="card-icon">🩺</div>
@@ -117,6 +117,30 @@
         </div>
       </section>
 
+      <section id="course-section" class="course-page hidden">
+        <div class="container">
+          <div class="course-header-card">
+            <div class="course-topbar">
+              <div class="course-title-wrap">
+                <div class="course-icon" id="course-icon">🚑</div>
+                <h2 id="course-title">СЛР</h2>
+              </div>
+              <button type="button" class="course-back" id="course-back-btn">← Назад</button>
+            </div>
+
+            <div class="course-tabs" aria-label="Вкладки курса">
+              <button class="course-tab active" type="button" data-tab="tab-1">1. Вступление</button>
+              <button class="course-tab" type="button" data-tab="tab-2">2. Методическое пособие</button>
+              <button class="course-tab" type="button" data-tab="tab-3">3. Вкладка 3</button>
+              <button class="course-tab" type="button" data-tab="tab-4">4. Вкладка 4</button>
+              <button class="course-tab" type="button" data-tab="tab-5">5. Вкладка 5</button>
+            </div>
+
+            <div id="course-content"></div>
+          </div>
+        </div>
+      </section>
+
       <section id="about" class="section intro">
         <div class="container narrow">
           <p class="section-tag">О центре</p>
@@ -139,21 +163,6 @@
         </div>
       </section>
     </main>
-
-    <div class="modal" id="course-modal" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal="true"></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="Закрыть" data-close-modal="true">×</button>
-        <div class="modal-header">
-          <div class="modal-icon" id="modal-icon">🚑</div>
-          <div>
-            <p class="modal-tag">Курс</p>
-            <h3 id="modal-title">СЛР</h3>
-          </div>
-        </div>
-        <div id="modal-content"></div>
-      </div>
-    </div>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
