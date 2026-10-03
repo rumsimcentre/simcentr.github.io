@@ -121,10 +121,11 @@ a {
 
 .hero-brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-logo-wrap {
