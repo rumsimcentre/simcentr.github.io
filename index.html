@@ -60,23 +60,23 @@
           </div>
 
           <div class="courses-grid">
-            <a href="slr.html" target="_blank" rel="noopener noreferrer" class="card-cube">
+            <button type="button" class="card-cube open-modal" data-course="slr">
               <div class="card-top">
                 <span class="card-badge">СЛР</span>
                 <div class="card-icon">🚑</div>
               </div>
               <h3>СЛР</h3>
               <p>Сердечно-легочная реанимация</p>
-            </a>
+            </button>
 
-            <a href="emergency.html" target="_blank" rel="noopener noreferrer" class="card-cube">
+            <button type="button" class="card-cube open-modal" data-course="emergency">
               <div class="card-top">
                 <span class="card-badge">ЭП</span>
                 <div class="card-icon">🩺</div>
               </div>
               <h3>Экстренная помощь</h3>
               <p>Первые действия при кризисе</p>
-            </a>
+            </button>
 
             <div class="card-cube">
               <div class="card-top">
@@ -139,6 +139,21 @@
         </div>
       </section>
     </main>
+
+    <div class="modal" id="course-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Закрыть" data-close-modal="true">×</button>
+        <div class="modal-header">
+          <div class="modal-icon" id="modal-icon">🚑</div>
+          <div>
+            <p class="modal-tag">Курс</p>
+            <h3 id="modal-title">СЛР</h3>
+          </div>
+        </div>
+        <div id="modal-content"></div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
