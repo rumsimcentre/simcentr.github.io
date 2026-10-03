@@ -9,6 +9,8 @@
   --primary-strong: #4ba3ff;
   --accent: #8ef3c5;
   --shadow: rgba(6, 15, 24, 0.5);
+  --danger: #ff6b6b;
+  --warning: #ffb454;
 }
 
 * {
@@ -28,6 +30,10 @@ body {
     var(--bg);
   color: var(--text);
   line-height: 1.6;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 a {
@@ -87,7 +93,6 @@ a {
   color: var(--text);
 }
 
-/* Анимация для логотипа */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -114,8 +119,15 @@ a {
   text-align: center;
 }
 
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+}
+
 .hero-logo-wrap {
-  margin-bottom: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,7 +150,8 @@ a {
 }
 
 .eyebrow,
-.section-tag {
+.section-tag,
+.modal-tag {
   margin: 0 0 1rem;
   color: var(--accent);
   text-transform: uppercase;
@@ -201,6 +214,9 @@ a {
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
 }
 
 .card-cube::before {
@@ -301,6 +317,173 @@ a {
   transform: translateY(-2px);
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 10, 17, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(920px, calc(100% - 2rem));
+  max-height: 85vh;
+  overflow: auto;
+  background: rgba(15, 27, 41, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+  padding: 1.5rem 1.5rem 1.2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: linear-gradient(135deg, rgba(124, 199, 255, 0.18), rgba(142, 243, 197, 0.12));
+  border: 1px solid rgba(124, 199, 255, 0.24);
+}
+
+#modal-title {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.05em;
+}
+
+.modal-tagline {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.modal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.modal-tab {
+  border: 1px solid rgba(124, 199, 255, 0.24);
+  background: rgba(124, 199, 255, 0.08);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+  transition: all 0.2s ease;
+}
+
+.modal-tab.active {
+  background: linear-gradient(135deg, rgba(124, 199, 255, 0.18), rgba(142, 243, 197, 0.08));
+  border-color: rgba(124, 199, 255, 0.5);
+}
+
+.modal-panel {
+  display: none;
+}
+
+.modal-panel.active {
+  display: block;
+}
+
+.modal-panel h2 {
+  margin-top: 0;
+  color: var(--warning);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.modal-panel p,
+.modal-panel li {
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.warning {
+  background: rgba(255, 107, 107, 0.12);
+  border-left: 4px solid var(--danger);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 18px 0;
+}
+
+.warning strong {
+  color: #ff9f9f;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.mini-card {
+  background: rgba(22, 36, 53, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.mini-card h3 {
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border: 1px dashed rgba(124, 199, 255, 0.4);
+  border-radius: 18px;
+  background: rgba(124, 199, 255, 0.04);
+  color: var(--muted);
+  font-size: 1.05rem;
+  text-align: center;
+  padding: 18px;
+}
+
 .site-footer {
   padding: 1.5rem 0 2.5rem;
   color: var(--muted);
@@ -318,6 +501,11 @@ a {
 @media (max-width: 900px) {
   .courses-grid {
     grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .hero-brand {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -340,5 +528,9 @@ a {
   .hero-logo {
     width: 110px;
     height: 110px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
