@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Экстренная помощь - Образовательный центр SimCenter</title>
+    <style>
+      :root {
+        --bg: #07111d;
+        --panel: rgba(15, 27, 41, 0.9);
+        --panel-soft: rgba(22, 36, 53, 0.9);
+        --text: #edf4ff;
+        --muted: #b7c7d9;
+        --primary: #7cc7ff;
+        --primary-strong: #4ba3ff;
+        --accent: #8ef3c5;
+        --danger: #ff6b6b;
+        --warning: #ffb454;
+        --line: rgba(255, 255, 255, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(255, 107, 107, 0.18), transparent 25%),
+          radial-gradient(circle at bottom right, rgba(255, 180, 84, 0.12), transparent 30%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 32px 24px 48px;
+      }
+
+      .header-card {
+        background: rgba(15, 27, 41, 0.82);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 28px 28px 18px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .title-icon {
+        width: 60px;
+        height: 60px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.18), rgba(255, 180, 84, 0.11));
+        border: 1px solid rgba(255, 107, 107, 0.25);
+        font-size: 2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.1rem);
+        letter-spacing: -0.06em;
+        color: var(--text);
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #041521;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 26px 0 18px;
+      }
+
+      .tab-btn {
+        border: 1px solid rgba(255, 180, 84, 0.2);
+        background: rgba(255, 180, 84, 0.08);
+        color: var(--text);
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .tab-btn.active {
+        background: linear-gradient(135deg, rgba(255, 180, 84, 0.18), rgba(255, 107, 107, 0.08));
+        border-color: rgba(255, 180, 84, 0.5);
+        box-shadow: 0 8px 18px rgba(255, 145, 77, 0.18);
+      }
+
+      .tab-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .tab-panel {
+        display: none;
+        background: rgba(9, 18, 29, 0.86);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 28px 24px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+        color: var(--warning);
+      }
+
+      p, li {
+        font-size: 1.04rem;
+        color: var(--muted);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .warning {
+        background: rgba(255, 107, 107, 0.12);
+        border-left: 4px solid var(--danger);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin: 18px 0;
+      }
+
+      .warning strong {
+        color: #ff9f9f;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .mini-card {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .mini-card h3 {
+        margin: 0 0 8px;
+        color: var(--text);
+      }
+
+      .placeholder {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        border: 1px dashed rgba(255, 180, 84, 0.4);
+        border-radius: 18px;
+        background: rgba(255, 180, 84, 0.04);
+        color: var(--muted);
+        font-size: 1.05rem;
+        text-align: center;
+        padding: 18px;
+      }
+
+      @media (max-width: 720px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="header-card">
+        <div class="topbar">
+          <div class="title-wrap">
+            <div class="title-icon">🩺</div>
+            <h1>Экстренная помощь</h1>
+          </div>
+          <a class="back" href="index.html">← Назад</a>
+        </div>
+
+        <div class="tabs" aria-label="Вкладки курса Экстренная помощь">
+          <button class="tab-btn active" type="button" data-tab="tab-1">1. Вступление</button>
+          <button class="tab-btn" type="button" data-tab="tab-2">2. Методическое пособие</button>
+          <button class="tab-btn" type="button" data-tab="tab-3">3. Вкладка 3</button>
+          <button class="tab-btn" type="button" data-tab="tab-4">4. Вкладка 4</button>
+          <button class="tab-btn" type="button" data-tab="tab-5">5. Вкладка 5</button>
+        </div>
+
+        <section class="tab-panel active" id="tab-1">
+          <h2>Вступление</h2>
+          <p>
+            Экстренная помощь включает действия, которые необходимо выполнить в первые минуты после
+            внезапного ухудшения состояния человека: травма, потеря сознания, острая боль, кровотечение,
+            удушье или другая угрожающая жизни ситуация.
+          </p>
+
+          <div class="warning">
+            <strong>⚠️ Важно:</strong> Если состояние угрожает жизни, сначала вызывайте скорую помощь и
+            сохраняйте спокойствие. В экстренной ситуации лучше действовать быстро и последовательно.
+          </div>
+
+          <h2>Основные правила</h2>
+          <ul>
+            <li>Оценить обстановку и свою безопасность;</li>
+            <li>Проверить сознание пострадавшего;</li>
+            <li>Вызвать помощь: 103 или 112;</li>
+            <li>Оказать первую помощь до прибытия медиков.</li>
+          </ul>
+        </section>
+
+        <section class="tab-panel" id="tab-2">
+          <h2>Методическое пособие</h2>
+          <p>
+            При оказании экстренной помощи важно соблюдать простую последовательность действий и не
+            паниковать. Чем быстрее и правильнее выполняются первые шаги, тем выше шанс сохранить жизнь.
+          </p>
+
+          <div class="grid">
+            <div class="mini-card">
+              <h3>1. Оценка ситуации</h3>
+              <p>Проверьте, нет ли угрозы для вас и пострадавшего: огонь, ток, обрушение, транспорт.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>2. Проверка сознания</h3>
+              <p>Попросите пострадавшего ответить, слегка потрясите его за плечи и оцените реакцию.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>3. Вызов помощи</h3>
+              <p>Незамедлительно звоните по номеру 103 или 112 и описывайте ситуацию максимально ясно.</p>
+            </div>
+
+            <div class="mini-card">
+              <h3>4. Первая помощь</h3>
+              <p>Действуйте по ситуации: остановка кровотечения, поддержка дыхания, фиксация травмы.</p>
+            </div>
+          </div>
+
+          <h2>Ключевые принципы</h2>
+          <ul>
+            <li>Сохраняйте спокойствие и говорите чётко;</li>
+            <li>Не перемещайте пострадавшего без необходимости;</li>
+            <li>Не давайте пить и есть при потере сознания или тяжёлом состоянии;</li>
+            <li>Следите за дыханием и пульсом до прибытия медиков.</li>
+          </ul>
+        </section>
+
+        <section class="tab-panel" id="tab-3">
+          <h2>Вкладка 3</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для третьей вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-4">
+          <h2>Вкладка 4</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для четвёртой вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-5">
+          <h2>Вкладка 5</h2>
+          <div class="placeholder">
+            Здесь будет добавлен контент для пятой вкладки.<br />
+            Пока это заглушка.
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((btn) => {
+            btn.classList.toggle('active', btn === button);
+          });
+
+          tabPanels.forEach((panel) => {
+            panel.classList.toggle('active', panel.id === target);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
