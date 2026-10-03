@@ -1,4 +1,4 @@
- :root {
+:root {
   --bg: #07111d;
   --bg-soft: #0d1b2a;
   --panel: rgba(15, 27, 41, 0.9);
@@ -284,7 +284,9 @@ a {
 }
 
 .intro p,
-.contact-box p, .course-content p, .course-content li {
+.contact-box p,
+.course-content p,
+.course-content li {
   color: var(--muted);
 }
 
