@@ -206,7 +206,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 260px;
+  min-height: 300px;
   padding: 1.2rem 1rem 1rem;
   border-radius: 26px;
   background: linear-gradient(135deg, rgba(20, 34, 52, 0.96), rgba(9, 19, 31, 0.94));
@@ -240,22 +240,23 @@ a {
 
 .card-media {
   width: 100%;
-  height: 78px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 18px;
   background: rgba(124, 199, 255, 0.06);
   border: 1px solid rgba(124, 199, 255, 0.12);
   margin-bottom: 0.9rem;
   position: relative;
   z-index: 1;
+  padding: 8px;
 }
 
 .card-media img {
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 8px 16px rgba(124, 199, 255, 0.18));
