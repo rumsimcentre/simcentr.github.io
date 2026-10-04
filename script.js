@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           label: "1. Вступление",
           content: `
             <h2>Вступление</h2>
-            <p><strong>Сердечно-лёгочная реанимация</strong> — это комплекс экстренных мер, направленных на восстановление дыхания и кровообращения при остановке сердца.</p>
+            <p><strong>Сердечно-лёгочная реанимация</strong> — это комплекс экстренных мер, направленных на восстановление дыхания и кровообращения.</p>
             <div class="warning"><strong>⚠️ Важно:</strong> СЛР выполняется только при угрозе жизни и в экстренной ситуации.</div>
             <h2>Когда нужна СЛР?</h2>
             <ul>
@@ -59,15 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           label: "3. Вкладка 3",
-          content: `<div class="placeholder">Здесь будет добавлен контент для третьей вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "4. Вкладка 4",
-          content: `<div class="placeholder">Здесь будет добавлен контент для четвёртой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "5. Вкладка 5",
-          content: `<div class="placeholder">Здесь будет добавлен контент для пятой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         }
       ]
     },
@@ -117,15 +117,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           label: "3. Вкладка 3",
-          content: `<div class="placeholder">Здесь будет добавлен контент для третьей вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "4. Вкладка 4",
-          content: `<div class="placeholder">Здесь будет добавлен контент для четвёртой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "5. Вкладка 5",
-          content: `<div class="placeholder">Здесь будет добавлен контент для пятой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         }
       ]
     },
@@ -175,15 +175,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           label: "3. Вкладка 3",
-          content: `<div class="placeholder">Здесь будет добавлен контент для третьей вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "4. Вкладка 4",
-          content: `<div class="placeholder">Здесь будет добавлен контент для четвёртой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "5. Вкладка 5",
-          content: `<div class="placeholder">Здесь будет добавлен контент для пятой вкладки.<br />Пока это заглушка.</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         }
       ]
     },
@@ -286,23 +286,23 @@ document.addEventListener("DOMContentLoaded", () => {
       tabs: [
         {
           label: "1. Вкладка 1",
-          content: `<div class="placeholder">Пусто</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "2. Вкладка 2",
-          content: `<div class="placeholder">Пусто</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "3. Вкладка 3",
-          content: `<div class="placeholder">Пусто</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "4. Вкладка 4",
-          content: `<div class="placeholder">Пусто</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         },
         {
           label: "5. Вкладка 5",
-          content: `<div class="placeholder">Пусто</div>`
+          content: `<div class="placeholder">Раздел находится в разработке.<br />Скоро здесь появится полезный контент.</div>`
         }
       ]
     }
