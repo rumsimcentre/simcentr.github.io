@@ -206,7 +206,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 300px;
+  min-height: 320px;
   padding: 1.2rem 1rem 1rem;
   border-radius: 26px;
   background: linear-gradient(135deg, rgba(20, 34, 52, 0.96), rgba(9, 19, 31, 0.94));
@@ -240,7 +240,7 @@ a {
 
 .card-media {
   width: 100%;
-  height: 110px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,7 +251,7 @@ a {
   margin-bottom: 0.9rem;
   position: relative;
   z-index: 1;
-  padding: 8px;
+  padding: 12px;
 }
 
 .card-media img {
