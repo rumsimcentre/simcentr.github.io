@@ -121,11 +121,10 @@ a {
 
 .hero-brand {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .hero-logo-wrap {
@@ -206,8 +205,9 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-height: 260px;
-  padding: 1rem;
+  padding: 1.2rem 1rem 1rem;
   border-radius: 26px;
   background: linear-gradient(135deg, rgba(20, 34, 52, 0.96), rgba(9, 19, 31, 0.94));
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -240,21 +240,25 @@ a {
 
 .card-media {
   width: 100%;
-  height: 150px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   border-radius: 18px;
-  background: rgba(124, 199, 255, 0.08);
-  border: 1px solid rgba(124, 199, 255, 0.14);
-  margin-bottom: 1rem;
+  background: rgba(124, 199, 255, 0.06);
+  border: 1px solid rgba(124, 199, 255, 0.12);
+  margin-bottom: 0.9rem;
   position: relative;
   z-index: 1;
 }
 
 .card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
   display: block;
+  filter: drop-shadow(0 8px 16px rgba(124, 199, 255, 0.18));
 }
 
 .placeholder-media {
@@ -268,10 +272,10 @@ a {
 }
 
 .card-cube h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
   letter-spacing: -0.04em;
-  line-height: 1.2;
+  line-height: 1.25;
   position: relative;
   z-index: 1;
 }
@@ -280,7 +284,7 @@ a {
   margin: 0;
   color: var(--primary);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   position: relative;
   z-index: 1;
 }
