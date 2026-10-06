@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>СЛР - Образовательный центр SimCenter</title>
+    <title>СЛР - Центр Симуляционного обучения</title>
     <style>
       :root {
         --bg: #07111d;
@@ -96,239 +96,210 @@
       .tabs {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin: 26px 0 18px;
+        gap: 10px;
+        margin: 18px 0;
       }
 
       .tab-btn {
         border: 1px solid rgba(124, 199, 255, 0.2);
-        background: rgba(124, 199, 255, 0.08);
+        background: rgba(124, 199, 255, 0.1);
         color: var(--text);
-        padding: 12px 18px;
+        padding: 10px 16px;
         border-radius: 12px;
-        font-size: 0.98rem;
-        font-weight: 600;
         cursor: pointer;
+        font-weight: 600;
         transition: all 0.2s ease;
       }
 
       .tab-btn.active {
-        background: linear-gradient(135deg, rgba(124, 199, 255, 0.2), rgba(142, 243, 197, 0.1));
+        background: linear-gradient(135deg, rgba(124, 199, 255, 0.25), rgba(142, 243, 197, 0.15));
         border-color: rgba(124, 199, 255, 0.5);
-        box-shadow: 0 8px 18px rgba(75, 163, 255, 0.18);
+        box-shadow: 0 6px 16px rgba(76, 161, 255, 0.15);
       }
 
       .tab-btn:hover {
         transform: translateY(-1px);
       }
 
-      .tab-panel {
-        display: none;
-        background: rgba(9, 18, 29, 0.86);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 28px 24px;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      .content {
+        margin-top: 26px;
       }
 
-      .tab-panel.active {
-        display: block;
-      }
-
-      h2 {
-        margin-top: 0;
-        font-size: clamp(1.4rem, 2vw, 2rem);
+      .content h2 {
+        margin: 0 0 16px;
+        font-size: clamp(1.3rem, 2vw, 1.8rem);
         color: var(--accent);
       }
 
-      p, li {
-        font-size: 1.04rem;
+      .content p {
         color: var(--muted);
+        line-height: 1.8;
+        margin: 0 0 16px;
       }
 
-      ul {
-        padding-left: 20px;
+      .content li {
+        color: var(--muted);
+        margin-bottom: 8px;
+        line-height: 1.6;
       }
 
-      .warning {
-        background: rgba(255, 107, 107, 0.12);
-        border-left: 4px solid var(--danger);
+      .warning-box {
+        background: rgba(255, 107, 107, 0.1);
+        border-left: 4px solid #ff6b6b;
         border-radius: 12px;
         padding: 14px 16px;
         margin: 18px 0;
       }
 
-      .warning strong {
-        color: #ff9f9f;
+      .warning-box strong {
+        color: #ff8888;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         margin-top: 18px;
       }
 
-      .mini-card {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
+      .card {
+        background: rgba(22, 36, 53, 0.7);
+        border: 1px solid rgba(124, 199, 255, 0.15);
         border-radius: 16px;
-        padding: 18px;
+        padding: 16px;
       }
 
-      .mini-card h3 {
+      .card h3 {
         margin: 0 0 8px;
         color: var(--text);
+        font-size: 1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
       }
 
       .placeholder {
+        min-height: 200px;
+        border: 1px dashed rgba(124, 199, 255, 0.3);
+        border-radius: 16px;
+        background: rgba(124, 199, 255, 0.04);
         display: grid;
         place-items: center;
-        min-height: 220px;
-        border: 1px dashed rgba(124, 199, 255, 0.4);
-        border-radius: 18px;
-        background: rgba(124, 199, 255, 0.04);
         color: var(--muted);
-        font-size: 1.05rem;
         text-align: center;
         padding: 18px;
       }
 
-      @media (max-width: 720px) {
-        .topbar {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
+      @media (max-width: 768px) {
         .grid {
           grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: clamp(1.5rem, 3vw, 2.2rem);
+        }
+
+        .page {
+          padding: 24px 16px 32px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page">
+    <div class="page">
       <div class="header-card">
         <div class="topbar">
           <div class="title-wrap">
             <div class="title-icon">🚑</div>
-            <h1>СЛР</h1>
+            <h1>Сердечно-лёгочная реанимация</h1>
           </div>
-          <a class="back" href="index.html">← Назад</a>
+          <a href="index.html" class="back">← Назад</a>
         </div>
 
-        <div class="tabs" aria-label="Вкладки курса СЛР">
-          <button class="tab-btn active" type="button" data-tab="tab-1">1. Вступление</button>
-          <button class="tab-btn" type="button" data-tab="tab-2">2. Методическое пособие</button>
-          <button class="tab-btn" type="button" data-tab="tab-3">3. Вкладка 3</button>
-          <button class="tab-btn" type="button" data-tab="tab-4">4. Вкладка 4</button>
-          <button class="tab-btn" type="button" data-tab="tab-5">5. Вкладка 5</button>
-        </div>
-
-        <section class="tab-panel active" id="tab-1">
-          <h2>Вступление</h2>
-          <p>
-            <strong>СЛР</strong> — это <strong>сердечно-легочная реанимация</strong>. Это комплекс экстренных
-            мероприятий, выполняемых при остановке сердца и дыхания для поддержания кровообращения и
-            доставки кислорода в головной мозг и жизненно важные органы до приезда медицинской помощи.
-          </p>
-
-          <div class="warning">
-            <strong>⚠️ Важно:</strong> СЛР выполняется только в экстренной ситуации и лучше всего под
-            руководством обученного человека или по указаниям диспетчера скорой помощи. При критической
-            ситуации звоните <strong>103</strong> или <strong>112</strong> сразу.
-          </div>
-
-          <h2>Когда нужна СЛР?</h2>
-          <p>СЛР необходима, если у человека:</p>
-          <ul>
-            <li>нет сознания;</li>
-            <li>нет пульса на сонной артерии;</li>
-            <li>не дышит или дышит очень редко и судорожно;</li>
-            <li>произошла остановка сердца после травмы, утопления, поражения током и т.п.</li>
-          </ul>
-        </section>
-
-        <section class="tab-panel" id="tab-2">
-          <h2>Методическое пособие</h2>
-          <p>
-            Ниже представлены базовые шаги оказания первой помощи в случае остановки сердца и дыхания.
-            Важно помнить: алгоритм должен выполняться последовательно и без паники.
-          </p>
-
-          <div class="grid">
-            <div class="mini-card">
-              <h3>1. Проверка безопасности</h3>
-              <p>Убедитесь, что вокруг безопасно, и вы не подвергаете себя риску.</p>
-            </div>
-
-            <div class="mini-card">
-              <h3>2. Вызов помощи</h3>
-              <p>Немедленно вызывайте скорую помощь и попросите кого-то принести дефибриллятор.</p>
-            </div>
-
-            <div class="mini-card">
-              <h3>3. Проверка сознания</h3>
-              <p>Потрясите человека за плечи и спросите: «Вы в порядке?»</p>
-            </div>
-
-            <div class="mini-card">
-              <h3>4. Дыхание</h3>
-              <p>Проверьте наличие дыхания в течение 10 секунд. Если его нет — начинайте реанимацию.</p>
-            </div>
-          </div>
-
-          <h2>Основные действия при СЛР</h2>
-          <ul>
-            <li><strong>30 надавливаний</strong> на грудную клетку;</li>
-            <li><strong>2 вдоха</strong> искусственной вентиляции лёгких;</li>
-            <li>повторять цикл до приезда скорой помощи или дефибриллятора.</li>
-          </ul>
-        </section>
-
-        <section class="tab-panel" id="tab-3">
-          <h2>Вкладка 3</h2>
-          <div class="placeholder">
-            Здесь будет добавлен контент для третьей вкладки.<br />
-            Пока это заглушка.
-          </div>
-        </section>
-
-        <section class="tab-panel" id="tab-4">
-          <h2>Вкладка 4</h2>
-          <div class="placeholder">
-            Здесь будет добавлен контент для четвёртой вкладки.<br />
-            Пока это заглушка.
-          </div>
-        </section>
-
-        <section class="tab-panel" id="tab-5">
-          <h2>Вкладка 5</h2>
-          <div class="placeholder">
-            Здесь будет добавлен контент для пятой вкладки.<br />
-            Пока это заглушка.
-          </div>
-        </section>
+        <div class="tabs" id="tabs"></div>
+        <div class="content" id="content"></div>
       </div>
-    </main>
+    </div>
 
     <script>
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const tabPanels = document.querySelectorAll('.tab-panel');
+      const courseData = {
+        slr: {
+          name: "Сердечно-лёгочная реанимация",
+          icon: "🚑",
+          tabs: [
+            {
+              title: "Алгоритм",
+              content: `
+                <h2>Алгоритм выполнения СЛР</h2>
+                <ol>
+                  <li>Проверить сознание (похлопать по щеке, позвать пациента)</li>
+                  <li>Позвать на помощь и вызвать скорую помощь (112)</li>
+                  <li>Положить пациента на спину на твёрдую поверхность</li>
+                  <li>Запрокинуть голову пациента назад</li>
+                  <li>Провести прямой массаж сердца (100-120 нажатий в минуту)</li>
+                  <li>Проводить искусственное дыхание (2 вдоха на 30 нажатий)</li>
+                </ol>
+              `
+            },
+            {
+              title: "Техника",
+              content: `
+                <h2>Техника массажа сердца</h2>
+                <p>Основные моменты:</p>
+                <ul>
+                  <li>Встать сбоку от пациента</li>
+                  <li>Положить основание одной ладони на нижнюю половину грудины</li>
+                  <li>Положить вторую ладонь сверху</li>
+                  <li>Надавливать с частотой 100-120 раз в минуту</li>
+                  <li>Глубина надавливания: 5-6 см</li>
+                </ul>
+                <div class="warning-box">
+                  <strong>⚠️ Важно:</strong> Не прерывайте массаж более чем на 10 секунд!
+                </div>
+              `
+            },
+            {
+              title: "Признаки",
+              content: `
+                <h2>Признаки клинической смерти</h2>
+                <ul>
+                  <li>Потеря сознания</li>
+                  <li>Отсутствие пульса на сонной артерии</li>
+                  <li>Отсутствие дыхания</li>
+                  <li>Расширенные зрачки</li>
+                  <li>Потеря мышечного тонуса</li>
+                </ul>
+              `
+            }
+          ]
+        }
+      };
 
-      tabButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const target = button.dataset.tab;
+      const course = courseData.slr;
+      const tabsContainer = document.getElementById("tabs");
+      const contentContainer = document.getElementById("content");
 
-          tabButtons.forEach((btn) => {
-            btn.classList.toggle('active', btn === button);
-          });
-
-          tabPanels.forEach((panel) => {
-            panel.classList.toggle('active', panel.id === target);
-          });
-        });
+      // Render tabs
+      course.tabs.forEach((tab, index) => {
+        const btn = document.createElement("button");
+        btn.className = `tab-btn ${index === 0 ? "active" : ""}`;
+        btn.textContent = tab.title;
+        btn.onclick = () => switchTab(index);
+        tabsContainer.appendChild(btn);
       });
+
+      function switchTab(index) {
+        document.querySelectorAll(".tab-btn").forEach((btn, i) => {
+          btn.classList.toggle("active", i === index);
+        });
+        contentContainer.innerHTML = course.tabs[index].content;
+      }
+
+      // Show first tab by default
+      contentContainer.innerHTML = course.tabs[0].content;
     </script>
   </body>
 </html>
