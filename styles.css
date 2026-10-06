@@ -1,5 +1,5 @@
 :root {
-  --bg: #1a3a4f;
+  --bg: #1a2f3f;
   --bg-soft: #243a4d;
   --panel: rgba(20, 35, 48, 0.9);
   --panel-border: rgba(126, 159, 191, 0.18);
@@ -24,9 +24,13 @@ html {
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background:
-    linear-gradient(135deg, rgba(90, 179, 232, 0.15) 0%, rgba(110, 197, 176, 0.08) 35%, transparent 50%),
-    linear-gradient(180deg, #2a4a5f 0%, #1a3a4f 50%, #0f2535 100%);
+  background-image: 
+    linear-gradient(180deg, rgba(32, 55, 80, 0.4) 0%, rgba(26, 47, 63, 0.2) 40%, transparent 70%),
+    url('фон.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
@@ -56,7 +60,7 @@ a {
   top: 0;
   z-index: 20;
   backdrop-filter: blur(14px);
-  background: rgba(26, 58, 79, 0.85);
+  background: rgba(26, 47, 63, 0.8);
   border-bottom: 1px solid rgba(126, 159, 191, 0.1);
 }
 
