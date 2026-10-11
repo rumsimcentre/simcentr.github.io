@@ -39,10 +39,10 @@
           <div class="container hero-single">
             <div class="hero-brand">
               <div class="hero-copy">
-                <p class="eyebrow">Обра��овательный центр</p>
+                <p class="eyebrow">Образовательный центр</p>
                 <h1>Добро пожаловать в Центр Симуляционного обучения</h1>
                 <p class="lede">
-                  Медицина — это путь длиною в жизнь, и чтобы найти себя в ней и стать хорошим в своём деле, важно ид�[...]
+                  Медицина — это путь длиною в жизнь, и чтобы найти себя в ней и стать хорошим в своём деле, важно идти через обучение, практику и системный подход.
                 </p>
               </div>
               <div class="hero-logo-wrap">
@@ -52,7 +52,16 @@
           </div>
         </section>
 
-        <section id="courses" class="section courses-section">
+        <section class="section accreditation-cta">
+          <div class="container">
+            <button type="button" id="open-accreditation" class="accreditation-main-button" aria-label="Для аккредитации">
+              <img src="аккред.png" alt="Для аккредитации" />
+              <span>Для аккредитации</span>
+            </button>
+          </div>
+        </section>
+
+        <section id="courses" class="section courses-section hidden">
           <div class="container">
             <div class="section-heading">
               <p class="section-tag">Доступные кружки</p>
@@ -131,6 +140,21 @@
           </div>
         </section>
       </div>
+
+      <section id="accreditation-page" class="accreditation-page hidden">
+        <div class="container accreditation-shell">
+          <div class="accreditation-header-card">
+            <div class="accreditation-topbar">
+              <div class="accreditation-title-wrap">
+                <div class="accreditation-icon">📘</div>
+                <h2>Для аккредитации</h2>
+              </div>
+              <button type="button" class="course-back" id="accreditation-back-btn">← Назад</button>
+            </div>
+            <div class="accreditation-grid" id="accreditation-grid"></div>
+          </div>
+        </div>
+      </section>
 
       <section id="course-page" class="course-page hidden">
         <div class="container">
