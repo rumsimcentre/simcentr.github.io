@@ -93,7 +93,8 @@ a {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -102,7 +103,8 @@ a {
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 18px rgba(79, 164, 197, 0.18), 0 20px 34px rgba(46, 126, 168, 0.12);
   }
   50% {
@@ -239,6 +241,11 @@ a {
   box-shadow: 0 26px 38px rgba(79, 164, 197, 0.14);
 }
 
+.card-cube:active {
+  transform: translateY(-2px) scale(0.985);
+  box-shadow: 0 12px 22px rgba(79, 164, 197, 0.1);
+}
+
 .card-media {
   width: 100%;
   height: 140px;
@@ -340,6 +347,216 @@ a {
 .button:hover,
 .button:focus-visible {
   transform: translateY(-2px);
+}
+
+.accreditation-main-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 18px 28px;
+  border: 0;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #5eb5d3 0%, #2d7ea9 100%);
+  color: #f6fcff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(46, 126, 168, 0.22), 0 4px 12px rgba(15, 30, 42, 0.08);
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition: transform 180ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 180ms cubic-bezier(0.2, 0.9, 0.3, 1), filter 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accreditation-main-button:hover,
+.accreditation-main-button:focus-visible {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 36px rgba(46, 126, 168, 0.28), 0 8px 18px rgba(15, 30, 42, 0.12);
+  filter: saturate(1.08);
+}
+
+.accreditation-main-button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 8px 18px rgba(46, 126, 168, 0.18), inset 0 3px 8px rgba(15, 30, 42, 0.12);
+}
+
+.accreditation-main-button img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  transition: transform 200ms ease;
+}
+
+.accreditation-main-button:hover img {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+.accreditation-main-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+}
+
+.accreditation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.accreditation-skill-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 74px;
+  padding: 18px 16px;
+  border: 1px solid rgba(79, 164, 197, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(236,247,251,0.85));
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(15, 30, 42, 0.05);
+  transform: translateY(0);
+  transition: transform 180ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+  overflow: hidden;
+}
+
+.accreditation-skill-button:hover,
+.accreditation-skill-button:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(79, 164, 197, 0.45);
+  box-shadow: 0 18px 28px rgba(79, 164, 197, 0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(242,249,251,1));
+}
+
+.accreditation-skill-button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 8px 18px rgba(79, 164, 197, 0.08);
+}
+
+.accreditation-detail {
+  grid-column: 1 / -1;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(79, 164, 197, 0.18);
+  border-radius: 24px;
+  padding: 24px 22px;
+  box-shadow: 0 18px 28px rgba(15, 30, 42, 0.06);
+  animation: accreditation-in 220ms ease;
+}
+
+@keyframes accreditation-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.accreditation-detail-header h3 {
+  margin: 0 0 18px;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.accreditation-detail-body {
+  padding: 18px 0 0;
+}
+
+.accreditation-detail-body h4 {
+  margin: 0 0 10px;
+  color: var(--primary-strong);
+}
+
+.accreditation-detail-body p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.accreditation-detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.pdf-link,
+.back-to-list-btn,
+.course-back {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 180ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 180ms ease, filter 180ms ease;
+  overflow: hidden;
+}
+
+.pdf-link {
+  background: linear-gradient(135deg, #2d7ea9, #3ea3c7);
+  color: #f8fcff;
+  box-shadow: 0 10px 22px rgba(46, 126, 168, 0.2);
+  text-decoration: none;
+}
+
+.back-to-list-btn,
+.course-back {
+  background: linear-gradient(135deg, #5eb5d3, #2d7ea9);
+  color: #f8fcff;
+  box-shadow: 0 10px 22px rgba(46, 126, 168, 0.2);
+}
+
+.pdf-link:hover,
+.pdf-link:focus-visible,
+.back-to-list-btn:hover,
+.back-to-list-btn:focus-visible,
+.course-back:hover,
+.course-back:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 28px rgba(46, 126, 168, 0.22);
+}
+
+.pdf-link:active,
+.back-to-list-btn:active,
+.course-back:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 8px 18px rgba(46, 126, 168, 0.14);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 600ms ease-out;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
 .course-page {
